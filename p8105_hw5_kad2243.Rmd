@@ -4,3 +4,19 @@ output: github_document
 date: "2026-11-18"
 ---
 
+### Creating a function for shared birthday probability
+
+library calls
+```{r}
+library(tidyverse)
+```
+
+Creating function to check for duplicated birthdays in a group
+```{r}
+
+shared_bday = function(x) {
+  
+  
+}
+```
+
