@@ -13,10 +13,17 @@ library(tidyverse)
 
 Creating function to check for duplicated birthdays in a group
 ```{r}
+#Creating random vector of values from 1 to 365 with duplicates of size n
+#Checking if any duplicates are present, returning true
 
-shared_bday = function(x) {
+shared_bday = function(n) {
+  bday = sample(1:365, n, replace = TRUE)
+  duplicates = any(duplicated(bday))
   
+  return(duplicates)
   
+  #Testing
+  shared_bday(200)
 }
 ```
 
