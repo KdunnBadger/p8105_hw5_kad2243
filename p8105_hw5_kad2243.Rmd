@@ -150,10 +150,13 @@ sim_pvals_means%>%
 ```
 
 ```{r}
-sim_pvals_means%>%
+sim_pvals_means %>%
   mutate(
-    reject = p < 0.005)%>%
-  ggplot(aes(x = mean, y=  u, color = reject))+
+    reject = p < 0.005
+    )%>%
+  group_by(mean)%>%
+  ggplot(aes(x = factor(mean), y=  u, color = reject))+
   geom_boxplot() 
 ```
 
+The sample means for which the null is rejected are close to the true means in some cases, but not exact.
