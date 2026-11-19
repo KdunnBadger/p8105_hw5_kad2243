@@ -97,7 +97,35 @@ Control group members have lower obseved values than the experimental group on a
 
 ```{r}
 #Create function to return 5000 set's mean and p-val 
+set.seed(123)
 
+u<- c()
+p<- c()
 for (i in 1:5000){
-  rnorm(30, 0, 5)`
+  x <- rnorm(30, 0, 5)
+  t_val <- t.test(x)
+  u[i] <- mean(x)
+  p[i] <- t_val$p.value
+}
+
+sim_pvals <- data.frame(sim = 1:5000, u, p)
+```
+
+```{r}
+#Repeating simulation for variable means
+set.seed(123)
+
+for (i in 1:6)
+u<- c()
+p<- c()
+for (i in 1:5000){
+  x <- rnorm(30, 0, 5)
+  t_val <- t.test(x)
+  u[i] <- mean(x)
+  p[i] <- t_val$p.value
+}
+
+sim_pvals <- data.frame(sim = 1:5000, u, p)
+
+```
 
