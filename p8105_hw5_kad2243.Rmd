@@ -54,6 +54,7 @@ As size of the group increased, as does probability of a shared birthday, as exp
 
 Creating a tidy data-frame with longitudinal data
 
+Data import:
 ```{r}
 #import data using for loop
 
@@ -61,8 +62,14 @@ Creating a tidy data-frame with longitudinal data
 data <- tibble(file =list.files(
   path = "data", full.names = TRUE))
   
-
-}
+data <- data %>%
+  mutate(data = purrr::map(file, read.csv))
 ```
 
+Data Tidying:
+
+```{r}
+long_data_tiddy <- data %>%
+  
+```
 
