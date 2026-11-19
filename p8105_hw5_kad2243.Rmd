@@ -93,4 +93,11 @@ ggplot(long_data_tiddy, aes(x=week, y = value,
 Control group members have lower obseved values than the experimental group on average.
 
 
-###
+### Problem 3 - One sample t-test power
+
+```{r}
+#Create function to return 5000 set's mean and p-val 
+
+for (i in 1:5000){
+  rnorm(30, 0, 5)`
+
