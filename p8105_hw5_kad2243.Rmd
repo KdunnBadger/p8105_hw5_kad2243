@@ -115,17 +115,21 @@ sim_pvals <- data.frame(sim = 1:5000, u, p)
 #Repeating simulation for variable means
 set.seed(123)
 
-for (i in 1:6)
+sim_pvals_means <- data.frame()
+
+for (i in 1:6) {
 u<- c()
 p<- c()
-for (i in 1:5000){
-  x <- rnorm(30, 0, 5)
+
+for (j in 1:5000){
+  x <- rnorm(30, i, 5)
   t_val <- t.test(x)
-  u[i] <- mean(x)
-  p[i] <- t_val$p.value
+  u[j] <- mean(x)
+  p[j] <- t_val$p.value
 }
 
-sim_pvals <- data.frame(sim = 1:5000, u, p)
+sim_pvals_means <- rbind(sim_pvals_means, data.frame(mean = i, sim = 1:5000, u, p))
 
+}
 ```
 
