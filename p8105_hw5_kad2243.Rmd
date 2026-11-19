@@ -57,7 +57,11 @@ Creating a tidy data-frame with longitudinal data
 ```{r}
 #import data using for loop
 
-for (i in 1:10)
+data <- list.files(
+  path = "data",
+  
+)
+}
 ```
 
 
