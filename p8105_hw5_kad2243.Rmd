@@ -149,4 +149,11 @@ sim_pvals_means%>%
 
 ```
 
+```{r}
+sim_pvals_means%>%
+  mutate(
+    reject = p < 0.005)%>%
+  ggplot(aes(x = mean, y=  u, color = reject))+
+  geom_boxplot() 
+```
 
