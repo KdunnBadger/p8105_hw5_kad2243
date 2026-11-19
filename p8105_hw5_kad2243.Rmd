@@ -133,3 +133,18 @@ sim_pvals_means <- rbind(sim_pvals_means, data.frame(mean = i, sim = 1:5000, u, 
 }
 ```
 
+Plotting simulated data
+
+```{r}
+# Creating variable in data set for rejection of null
+
+sim_pvals_means%>%
+  mutate(
+    reject = p < 0.005
+  )%>%
+  group_by(mean)%>%
+  prop_reject = nrow(reject ==TRUE)/nrow()
+
+```
+
+
