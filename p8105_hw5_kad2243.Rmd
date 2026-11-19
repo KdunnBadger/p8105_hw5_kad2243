@@ -70,6 +70,7 @@ Data Tidying:
 
 ```{r}
 long_data_tiddy <- data %>%
-  
+  mutate(file = str_remove (file, "data/"), file =str_remove(file, "\\.csv"))%>%
+  separate(file, into = c("group", "id"), sep = "_")
 ```
 
