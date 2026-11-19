@@ -48,3 +48,16 @@ shared_bday = function(n) {
   ggplot(data= prob_shared,aes(n, y = prob))+ geom_point()+ geom_line()
 ```
 
+As size of the group increased, as does probability of a shared birthday, as expected. This increase appears almost linear.
+
+### Problem 2
+
+Creating a tidy data-frame with longitudinal data
+
+```{r}
+#import data using for loop
+
+for (i in 1:10)
+```
+
+
