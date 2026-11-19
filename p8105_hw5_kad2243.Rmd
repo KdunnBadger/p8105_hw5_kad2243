@@ -71,6 +71,13 @@ Data Tidying:
 ```{r}
 long_data_tiddy <- data %>%
   mutate(file = str_remove (file, "data/"), file =str_remove(file, "\\.csv"))%>%
-  separate(file, into = c("group", "id"), sep = "_")
+  separate(file, into = c("group", "id"), sep = "_")%>%
+  unnest(data) %>%
+  pivot_longer(
+    cols = week_1:week_8,
+    names_to =  "week",
+    names_prefix = "week_",
+    values_to =  "value"
+  )
 ```
 
