@@ -22,8 +22,29 @@ shared_bday = function(n) {
   
   return(duplicates)
   
+}
+
   #Testing
   shared_bday(200)
-}
+  
+  #1000 iterations averaged for groups of 2 to 50
+  
+  set.seed(123)
+  
+  #Creating vector for shared prob
+  prob_shared <- c()
+  
+  for(i in 2:50) {
+    shared_count <-0
+    for ( j in 1:1000){
+      if (shared_bday(i))shared_count <- shared_count +1
+    }
+    prob_shared[i] <- shared_count/1000
+  }
+  
+  #Plot of simulated probabilities
+  prob_shared <- data.frame( n = 2:50, prob = prob_shared[2:50])
+  
+  ggplot(data= prob_shared,aes(n, y = prob))+ geom_point()+ geom_line()
 ```
 
