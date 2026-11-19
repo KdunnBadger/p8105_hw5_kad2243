@@ -4,7 +4,7 @@ output: github_document
 date: "2026-11-18"
 ---
 
-### Creating a function for shared birthday probability
+### Problem 1 - Creating a function for shared birthday probability
 
 library calls
 ```{r}
@@ -50,7 +50,7 @@ shared_bday = function(n) {
 
 As size of the group increased, as does probability of a shared birthday, as expected. This increase appears almost linear.
 
-### Problem 2
+### Problem 2 - iteration to import data
 
 Creating a tidy data-frame with longitudinal data
 
@@ -81,3 +81,16 @@ long_data_tiddy <- data %>%
   )
 ```
 
+Longitudinal data plot:
+```{r}
+#Spaghetti plot - used interaction for unique combos of id and treatmemt group
+ggplot(long_data_tiddy, aes(x=week, y = value,
+                            group = interaction(group, id),
+                            color =group)) +
+  geom_line()
+```
+
+Control group members have lower obseved values than the experimental group on average.
+
+
+###
