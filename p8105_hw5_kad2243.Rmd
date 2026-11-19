@@ -133,7 +133,7 @@ sim_pvals_means <- rbind(sim_pvals_means, data.frame(mean = i, sim = 1:5000, u, 
 }
 ```
 
-Plotting simulated data
+Plotting simulated data - proportion rejected by mean
 
 ```{r}
 # Creating variable in data set for rejection of null
@@ -143,7 +143,9 @@ sim_pvals_means%>%
     reject = p < 0.005
   )%>%
   group_by(mean)%>%
-  prop_reject = nrow(reject ==TRUE)/nrow()
+  summarise(prop_reject = mean(reject))%>%
+  ggplot(aes(x = mean, y= prop_reject))+
+  geom_point() + geom_line()
 
 ```
 
