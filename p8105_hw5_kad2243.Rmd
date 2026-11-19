@@ -58,10 +58,11 @@ Creating a tidy data-frame with longitudinal data
 #import data using for loop
 
 #creating list of the files
-data <- list.files(
-  path = "data", full.names = TRUE)
+data <- tibble(file =list.files(
+  path = "data", full.names = TRUE))
   
 
+}
 ```
 
 
